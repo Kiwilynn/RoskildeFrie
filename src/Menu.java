@@ -38,16 +38,19 @@ class Menu {
 
                             System.out.println("1: Opret barn\n2: Vis børn\n3: Fjern børn\n4: Tilbage");
                             if(scan.nextInt() == 1) {
-                                bH.indlesBarn();
+                                bH.indlesBorn();
+
                             }
                             else if (scan.nextInt() == 2){
                                 bH.visBarn();
+
                             }
                             else if(scan.nextInt() == 3){
                                 bH.fjernBarn();
+
                             }
                             else if(scan.nextInt() == 4){
-                                //tilbage til menu
+                                // tilbage til menu
                             }
                         } else if (bruger.getStatus().equals("Ansat")) {
                             System.out.println("1: vis børn \n2: Tilbage");
@@ -55,7 +58,7 @@ class Menu {
                                 bH.visBarn();
                             }
                             if(scan.nextInt() == 1) {
-                                //tilbage til menu
+                                // tilbage til menu
                             }
                         }
                         break;
