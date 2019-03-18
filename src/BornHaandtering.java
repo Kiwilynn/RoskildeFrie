@@ -11,7 +11,7 @@ public class BornHaandtering {
     static List<Born> borneliste = new LinkedList<>();
     private Scanner input = new Scanner(System.in);
 
-    public void indlesBørn() throws FileNotFoundException {
+    public void indlesBarn() throws FileNotFoundException {
         Scanner input = new Scanner(new File("C:\\Users\\madsr\\IdeaProjects\\untitled1\\src\\Børneliste"));
         while (input.hasNext()) {
             String fornavn = input.next();
@@ -25,28 +25,27 @@ public class BornHaandtering {
         }
     }
 
-
     public void gemBarn() throws FileNotFoundException {
         PrintStream output = new PrintStream(new FileOutputStream("C:\\Users\\madsr\\IdeaProjects\\untitled1\\src\\Børneliste", true));
         for (Born b : borneliste) {
-            output.println(b.getFornavn()+" "+b.getEfternavn()+" "+b.getAlder()+" "+b.getInd_Dato()+" "+b.getStue()+" "+b.getParent_Navn());
+            output.println(b.getFornavn() + " " + b.getEfternavn() + " " + b.getAlder() + " " + b.getInd_Dato() + " " + b.getStue() + " " + b.getParent_Navn());
         }
         System.out.println();
     }
 
-    public void fjernBarn()throws FileNotFoundException {
+    public void fjernBarn() throws FileNotFoundException {
         System.out.println("Hvilket barn vil du gerne fjerne fra listen?:");
         System.out.print("Input fornavn: ");
         String fornavn = input.nextLine().toUpperCase();
         System.out.print("Input efternavn: ");
         String efternavn = input.nextLine().toUpperCase();
 
-        for (Born b : borneliste){
+        for (Born b : borneliste) {
 
             if (b.getFornavn().equals(fornavn) & b.getEfternavn().equals(efternavn)) {
                 System.out.println();
                 borneliste.remove(b);
-                System.out.println("Du slettede: "+b.getFornavn()+" "+b.getEfternavn());
+                System.out.println("Du slettede: " + b.getFornavn() + " " + b.getEfternavn());
                 System.out.println();
                 gemBarn();
                 break;
@@ -57,25 +56,22 @@ public class BornHaandtering {
                 break;
             }
         }
+    }
 
-        public void showMember() {
+    public void visBarn() {
             int count = 0;
-            System.out.printf("%-10S %-10S %10S %10S\n","First:","Last:","Age:","Team:");
-            //sortEasyName();
-            sortByName();
-            for (MemberPlayer m : memberlist) {
-                System.out.printf("%-10S %-10S %8d %8d\n",m.getFirstName(), m.getLastName(), m.getAge(), m.getTeam());
+            //System.out.printf("%-10S %-10S %10S %10S\n","First:","Last:","Age:","Team:");
+
+            for (Born b : borneliste) {
+                System.out.printf("%-10S %-10S %8d %8d %10S %10S\n", b.getFornavn()+" "+b.getEfternavn()+" "+b.getAlder()+" "+b.getInd_Dato()+" "+b.getStue()+" "+b.getParent_Navn());
                 count++;
             }
             System.out.println();
-            System.out.println("There are " + count + " MemberPlayers in the club:");
+            System.out.println("Der er " + count + " børn i alt:");
             System.out.println();
         }
+}
 
-
-
-
-    }
 
 
 
