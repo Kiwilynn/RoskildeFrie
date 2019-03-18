@@ -5,6 +5,7 @@ import java.io.PrintStream;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Date;
 
 public class BornHaandtering {
 
@@ -26,11 +27,11 @@ public class BornHaandtering {
             String fornavn = input.next();
             String efternavn = input.next();
             int alder = input.nextInt();
-            int ind_Dato = input.nextInt();
+            String dato = input.next();
             String stue = input.next();
             String parent_Navn = input.next();
 
-            borneliste.add(new Born(fornavn, efternavn, alder, ind_Dato, stue, parent_Navn));
+            borneliste.add(new Born(fornavn, efternavn, alder, dato, stue, parent_Navn));
         }
     }
 
@@ -38,7 +39,7 @@ public class BornHaandtering {
     public void gemBarn() throws FileNotFoundException {
         PrintStream output = new PrintStream(new FileOutputStream(".src/Børneliste", true));
         for (Born b : borneliste) {
-            output.println(b.getFornavn() + " " + b.getEfternavn() + " " + b.getAlder() + " " + b.getInd_Dato() + " " + b.getStue() + " " + b.getParent_Navn());
+            output.println(b.getFornavn() + " " + b.getEfternavn() + " " + b.getAlder() + " " + b.getDato() + " " + b.getStue() + " " + b.getParent_Navn());
         }
         System.out.println();
     }
@@ -73,7 +74,7 @@ public class BornHaandtering {
             //System.out.printf("%-10S %-10S %10S %10S\n","First:","Last:","Age:","Team:");
 
             for (Born b : borneliste) {
-                System.out.printf("%-10S %-10S %8d %8d %10S %10S\n", b.getFornavn()+" "+b.getEfternavn()+" "+b.getAlder()+" "+b.getInd_Dato()+" "+b.getStue()+" "+b.getParent_Navn());
+                System.out.printf("%-10S %-10S %8d %8d %10S %10S\n", b.getFornavn()+" "+b.getEfternavn()+" "+b.getAlder()+" "+b.getDato()+" "+b.getStue()+" "+b.getParent_Navn());
                 count++;
             }
             System.out.println();

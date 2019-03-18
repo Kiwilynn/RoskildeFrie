@@ -1,17 +1,23 @@
+import java.text.SimpleDateFormat;
+import java.util.*;
+
 public class Born {
 
     private String fornavn;
     private String efternavn;
     private int alder;
-    private int ind_Dato;
     private String stue;
     private String parent_Navn;
 
-    public Born(String fornavn, String efternavn, int alder, int ind_Dato, String stue, String parent_Navn){
+    //Formateret Date object fra java.util til at være en string
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private String dato;
+
+    public Born(String fornavn, String efternavn, int alder, String dato, String stue, String parent_Navn){
         this.fornavn = fornavn;
         this.efternavn = efternavn;
         this.alder = alder;
-        this. ind_Dato = ind_Dato;
+        this.dato = dato;
         this.stue = stue;
         this.parent_Navn = parent_Navn;
     }
@@ -25,8 +31,8 @@ public class Born {
     public int getAlder() {
         return alder;
     }
-    public int getInd_Dato() {
-        return ind_Dato;
+    public String getDato() {
+        return dato;
     }
     public String getStue() {
         return stue;
@@ -44,8 +50,8 @@ public class Born {
     public void setAlder(int alder) {
         this.alder = alder;
     }
-    public void setIndDato(int ind_Dato) {
-        this.ind_Dato = ind_Dato;
+    public void setDato(String dato) {
+        this.dato = dato;
     }
     public void setStue(String stue) {
         this.stue = stue;
