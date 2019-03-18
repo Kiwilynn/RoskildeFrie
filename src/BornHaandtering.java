@@ -12,7 +12,16 @@ public class BornHaandtering {
     private Scanner input = new Scanner(System.in);
 
     public void indlesBorn() throws FileNotFoundException {
-        Scanner input = new Scanner(new File(".src/Børneliste"));
+        File file = new File(".src/Børneliste");
+        Scanner input = new Scanner(file);
+
+        try{
+            if(!file.exists()){
+                file.createNewFile();
+            }
+        }catch (java.io.IOException e){
+
+        }
         while (input.hasNext()) {
             String fornavn = input.next();
             String efternavn = input.next();
@@ -25,8 +34,9 @@ public class BornHaandtering {
         }
     }
 
+
     public void gemBarn() throws FileNotFoundException {
-        PrintStream output = new PrintStream(new FileOutputStream("C:\\Users\\madsr\\IdeaProjects\\untitled1\\src\\Børneliste", true));
+        PrintStream output = new PrintStream(new FileOutputStream(".src/Børneliste", true));
         for (Born b : borneliste) {
             output.println(b.getFornavn() + " " + b.getEfternavn() + " " + b.getAlder() + " " + b.getInd_Dato() + " " + b.getStue() + " " + b.getParent_Navn());
         }
