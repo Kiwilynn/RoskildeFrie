@@ -8,10 +8,10 @@ import java.util.Scanner;
 
 public class BornHaandtering {
 
-    static List<Born> børneliste = new LinkedList<>();
+    static List<Born> borneliste = new LinkedList<>();
     private Scanner input = new Scanner(System.in);
 
-    public void indlæsBørn() throws FileNotFoundException {
+    public void indlesBørn() throws FileNotFoundException {
         Scanner input = new Scanner(new File("C:\\Users\\madsr\\IdeaProjects\\untitled1\\src\\Børneliste"));
         while (input.hasNext()) {
             String fornavn = input.next();
@@ -21,14 +21,14 @@ public class BornHaandtering {
             String stue = input.next();
             String parent_Navn = input.next();
 
-            børneliste.add(new Born(fornavn, efternavn, alder, ind_Dato, stue, parent_Navn));
+            borneliste.add(new Born(fornavn, efternavn, alder, ind_Dato, stue, parent_Navn));
         }
     }
 
 
     public void gemBarn() throws FileNotFoundException {
         PrintStream output = new PrintStream(new FileOutputStream("C:\\Users\\madsr\\IdeaProjects\\untitled1\\src\\Børneliste", true));
-        for (Born b : børneliste) {
+        for (Born b : borneliste) {
             output.println(b.getFornavn()+" "+b.getEfternavn()+" "+b.getAlder()+" "+b.getInd_Dato()+" "+b.getStue()+" "+b.getParent_Navn());
         }
         System.out.println();
@@ -41,11 +41,11 @@ public class BornHaandtering {
         System.out.print("Input efternavn: ");
         String efternavn = input.nextLine().toUpperCase();
 
-        for (Born b : børneliste){
+        for (Born b : borneliste){
 
             if (b.getFornavn().equals(fornavn) & b.getEfternavn().equals(efternavn)) {
                 System.out.println();
-                børneliste.remove(b);
+                borneliste.remove(b);
                 System.out.println("Du slettede: "+b.getFornavn()+" "+b.getEfternavn());
                 System.out.println();
                 gemBarn();
@@ -57,6 +57,24 @@ public class BornHaandtering {
                 break;
             }
         }
+
+        public void showMember() {
+            int count = 0;
+            System.out.printf("%-10S %-10S %10S %10S\n","First:","Last:","Age:","Team:");
+            //sortEasyName();
+            sortByName();
+            for (MemberPlayer m : memberlist) {
+                System.out.printf("%-10S %-10S %8d %8d\n",m.getFirstName(), m.getLastName(), m.getAge(), m.getTeam());
+                count++;
+            }
+            System.out.println();
+            System.out.println("There are " + count + " MemberPlayers in the club:");
+            System.out.println();
+        }
+
+
+
+
     }
 
 
