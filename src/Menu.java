@@ -1,14 +1,16 @@
+import java.io.FileNotFoundException;
 import java.util.*;
 
 class Menu {
 
-    void menu() {
+    void menu() throws FileNotFoundException {
 
         Scanner scan = new Scanner(System.in);
 
         //Instantierer logind klassen for at senere at kører metoden for at afgøre hvorvidt det er en leder eller ansat til at beslutte menuens valgmuligheder
         Logind bruger = new Logind();
         bruger.Logind();
+        BornHaandtering bH = new BornHaandtering();
 
         boolean go = true;
 
@@ -33,11 +35,28 @@ class Menu {
                     case 2:
                         if (bruger.getStatus().equals("Leder")) {
                             //!MANGLER rediger børn
-                            //!MANGLER vis børn
-                            //!MANGLER slet børn
-                            System.out.println("2");
+
+                            System.out.println("1: Opret barn\n2: Vis børn\n3: Fjern børn\n4: Tilbage");
+                            if(scan.nextInt() == 1) {
+                                bH.indlesBarn();
+                            }
+                            else if (scan.nextInt() == 2){
+                                bH.visBarn();
+                            }
+                            else if(scan.nextInt() == 3){
+                                bH.fjernBarn();
+                            }
+                            else if(scan.nextInt() == 4){
+                                //tilbage til menu
+                            }
                         } else if (bruger.getStatus().equals("Ansat")) {
-                            //!MANGLER vis børn
+                            System.out.println("1: vis børn \n2: Tilbage");
+                            if(scan.nextInt() == 1) {
+                                bH.visBarn();
+                            }
+                            if(scan.nextInt() == 1) {
+                                //tilbage til menu
+                            }
                         }
                         break;
                     case 3:
