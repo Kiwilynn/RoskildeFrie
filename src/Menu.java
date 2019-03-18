@@ -11,7 +11,7 @@ public class Menu {
 
         while(go){
 
-            System.out.println("1: Vagtplan \n2: Telefon liste\n3: Indskrevet børn\n4: Hjælp");
+            System.out.println("1: Vagtplan \n2: Telefon liste\n3: Indskrevet børn\n4: Hjælp\n5: Sluk program");
             svar = scan.nextInt();
 
         switch (svar) {
@@ -20,9 +20,8 @@ public class Menu {
                 if(bruger.Bruger().equals("Leder")){
                     System.out.println("Hello");
                 }
-
-
-
+            case 5:
+                go = false;
         }
         }
     }
