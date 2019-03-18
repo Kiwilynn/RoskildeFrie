@@ -54,6 +54,7 @@ class Menu {
                     case 4:
                         System.out.println("Farvel");
                         go = false;
+                        break;
                     default:
                         System.out.println("Venligst indtast nummer indenfor funktionslisten");
                 }

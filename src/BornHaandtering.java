@@ -11,7 +11,9 @@ public class BornHaandtering {
     static List<Born> borneliste = new LinkedList<>();
     private Scanner input = new Scanner(System.in);
 
+
     public void indlesBarn() throws FileNotFoundException {
+
         Scanner input = new Scanner(new File("C:\\Users\\madsr\\IdeaProjects\\untitled1\\src\\Børneliste"));
         while (input.hasNext()) {
             String fornavn = input.next();
@@ -70,38 +72,4 @@ public class BornHaandtering {
             System.out.println("Der er " + count + " børn i alt:");
             System.out.println();
         }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
