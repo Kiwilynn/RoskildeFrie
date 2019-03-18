@@ -11,16 +11,26 @@ public class Menu {
 
         while(go){
 
-            System.out.println("1: Vagtplan \n2: Telefon liste\n3: Indskrevet børn\n4: Hjælp\n5: Sluk program");
+            bruger.Logind();
+            System.out.println("1: Telefon liste \n2: Indskrevet børn\n3: Hjælp\n4: Sluk program");
             svar = scan.nextInt();
 
         switch (svar) {
 
             case 1:
-                if(bruger.Bruger().equals("Leder")){
-                    System.out.println("Hello");
+                if(bruger.getStatus().equals("Leder")){
+                    System.out.println("Leder");
+                    // rediger og vis telefon liste
                 }
-            case 5:
+                else if (bruger.getStatus().equals("Ansat")){
+                    //vis telefon liste
+                    System.out.println("Ansat");
+                }
+            case 2:
+
+            case 3:
+
+            case 4:
                 go = false;
         }
         }
