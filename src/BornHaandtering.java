@@ -16,13 +16,6 @@ public class BornHaandtering {
         File file = new File("Børneliste");
         Scanner input = new Scanner(file);
 
-        try{
-            if(!file.exists()){
-                file.createNewFile();
-            }
-        }catch (java.io.IOException e){
-
-        }
         while (input.hasNext()) {
             String fornavn = input.next();
             String efternavn = input.next();
@@ -53,7 +46,7 @@ public class BornHaandtering {
 
         for (Born b : borneliste) {
 
-            if (b.getFornavn().equals(fornavn) & b.getEfternavn().equals(efternavn)) {
+            if (b.getFornavn().equalsIgnoreCase(fornavn) & b.getEfternavn().equalsIgnoreCase(efternavn)) {
                 System.out.println();
                 borneliste.remove(b);
                 System.out.println("Du slettede: " + b.getFornavn() + " " + b.getEfternavn());

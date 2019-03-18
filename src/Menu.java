@@ -33,8 +33,8 @@ class Menu {
                             System.out.println("1");
                         } else if (bruger.getStatus().equals("Ansat")) {
                             //!MANGLER vis telefon liste
-                        }
-                        break;
+                        } break;
+
                     case 2:
                         if (bruger.getStatus().equals("Leder")) {
                             //!MANGLER rediger børn
@@ -44,15 +44,15 @@ class Menu {
                                 bH.indlesBorn();
 
                             }
-                            else if (scan.nextInt() == 2){
+                            if (scan.nextInt() == 2){
                                 bH.visBarn();
 
                             }
-                            else if(scan.nextInt() == 3){
+                            if(scan.nextInt() == 3){
                                 bH.fjernBarn();
 
                             }
-                            else if(scan.nextInt() == 4){
+                            if(scan.nextInt() == 4){
                                 // tilbage til menu
                             }
                         } else if (bruger.getStatus().equals("Ansat")) {
@@ -60,11 +60,12 @@ class Menu {
                             if(scan.nextInt() == 1) {
                                 bH.visBarn();
                             }
-                            if(scan.nextInt() == 1) {
+                            else if(scan.nextInt() == 2) {
                                 // tilbage til menu
                             }
                         }
                         break;
+
                     case 3:
                         if (bruger.getStatus().equals("Leder")) {
                             System.out.println("Som leder kan du redigere telefon listen og redigere i informationen om de indskrevne børn, samt tilføje flere børn eller slette børn.");
