@@ -14,6 +14,9 @@ class Menu {
 
         boolean go = true;
 
+        bH.indlesBorn();
+        bH.visBarn();
+
         while (go) {
 
             try {

@@ -5,7 +5,6 @@ import java.io.PrintStream;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Date;
 
 public class BornHaandtering {
 
@@ -13,7 +12,8 @@ public class BornHaandtering {
     private Scanner input = new Scanner(System.in);
 
     public void indlesBorn() throws FileNotFoundException {
-        File file = new File(".src/Børneliste");
+
+        File file = new File("Børneliste");
         Scanner input = new Scanner(file);
 
         try{
@@ -27,17 +27,17 @@ public class BornHaandtering {
             String fornavn = input.next();
             String efternavn = input.next();
             int alder = input.nextInt();
-            String dato = input.next();
             String stue = input.next();
             String parent_Navn = input.next();
+            String dato = input.next();
 
-            borneliste.add(new Born(fornavn, efternavn, alder, dato, stue, parent_Navn));
+            borneliste.add(new Born(fornavn, efternavn, alder, stue, parent_Navn, dato));
         }
     }
 
 
     public void gemBarn() throws FileNotFoundException {
-        PrintStream output = new PrintStream(new FileOutputStream(".src/Børneliste", true));
+        PrintStream output = new PrintStream(new FileOutputStream("Børneliste", true));
         for (Born b : borneliste) {
             output.println(b.getFornavn() + " " + b.getEfternavn() + " " + b.getAlder() + " " + b.getDato() + " " + b.getStue() + " " + b.getParent_Navn());
         }
@@ -74,11 +74,15 @@ public class BornHaandtering {
             //System.out.printf("%-10S %-10S %10S %10S\n","First:","Last:","Age:","Team:");
 
             for (Born b : borneliste) {
-                System.out.printf("%-10S %-10S %8d %8d %10S %10S\n", b.getFornavn()+" "+b.getEfternavn()+" "+b.getAlder()+" "+b.getDato()+" "+b.getStue()+" "+b.getParent_Navn());
+                System.out.printf("%-10S %-10S %3d %10S %10S %15S\n", b.getFornavn(), b.getEfternavn(), b.getAlder(), b.getStue(), b.getParent_Navn(), b.getDato());
                 count++;
             }
             System.out.println();
-            System.out.println("Der er " + count + " børn i alt:");
+            if(count == 1){
+                System.out.println("Der er " + count + " barn i alt:");
+            }else {
+                System.out.println("Der er " + count + " børn i alt:");
+            }
             System.out.println();
         }
 }
