@@ -7,10 +7,11 @@ public class Menu {
 
         while(go){
 
-            System.out.println("1: Vagtplan \n2: Telefon liste\n3: Indskrevet børn");
+            System.out.println("1: Vagtplan \n2: Telefon liste\n3: Indskrevet børn\n4: Hjælp");
         switch (answer) {
 
             case 1:
+
 
         }
         }
