@@ -1,10 +1,10 @@
 import java.util.*;
 
-public class Logind {
+class Logind {
 
-    String Status = null;
+    private String Status = null;
 
-    public void Logind(){
+        void Logind(){
 
         try {
         int lederPW = 123;
@@ -29,7 +29,7 @@ public class Logind {
         }
     }
 
-    public String getStatus(){
+    String getStatus(){
         return Status;
     }
 

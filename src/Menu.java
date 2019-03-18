@@ -1,23 +1,20 @@
 import java.util.*;
 
-public class Menu {
+class Menu {
 
-    public void menu() {
+    void menu() {
 
         Scanner scan = new Scanner(System.in);
-        Logind bruger = new Logind();
-        boolean go = true;
 
+        //Instantierer logind klassen for at senere at kører metoden for at afgøre hvorvidt det er en leder eller ansat til at beslutte menuens valgmuligheder
+        Logind bruger = new Logind();
         bruger.Logind();
 
+        boolean go = true;
 
         while (go) {
 
-
             try {
-
-
-
 
                 int svar = 0;
                 System.out.println("1: Telefon liste \n2: Indskrevet børn\n3: Hjælp\n4: Sluk program");
@@ -27,33 +24,31 @@ public class Menu {
 
                     case 1:
                         if (bruger.getStatus().equals("Leder")) {
-                            // rediger og vis telefon liste
+                            //!MANGLER rediger og vis telefon liste
                             System.out.println("1");
                         } else if (bruger.getStatus().equals("Ansat")) {
-                            //vis telefon liste
+                            //!MANGLER vis telefon liste
                         }
                         break;
                     case 2:
                         if (bruger.getStatus().equals("Leder")) {
-                            // rediger børn
-                            // vis børn
-                            // slet børn
+                            //!MANGLER rediger børn
+                            //!MANGLER vis børn
+                            //!MANGLER slet børn
                             System.out.println("2");
                         } else if (bruger.getStatus().equals("Ansat")) {
-                            // vis børn
+                            //!MANGLER vis børn
                         }
                         break;
                     case 3:
                         if (bruger.getStatus().equals("Leder")) {
                             System.out.println("Som leder kan du redigere telefon listen og redigere i informationen om de indskrevne børn, samt tilføje flere børn eller slette børn.");
                             System.out.println("Du har også mulighed for at bare at se enten telefon listen eller de indskrevne børn.");
-                            System.out.println("Skulle der være spørgsmål eller fejl kan du kontakte 'Gruppe Pizza' på");
-                            System.out.println("\t\t-------------------------------");
-                            System.out.println("\t\t|        55 55 55 55          |");
-                            System.out.println("\t\t|        falsk@email.dk       |");
-                            System.out.println("\t\t-------------------------------\n\n");
+                            VisitKort();
+
                         } else if (bruger.getStatus().equals("Ansat")) {
-                            //vis telefon liste
+                            System.out.println("Som ansat kan du se telefon listen og se indskrevne børn.");
+                            VisitKort();
                         }
                         break;
                     case 4:
@@ -67,5 +62,14 @@ public class Menu {
                 scan.nextLine();
             }
         }
+    }
+
+    //Intellij brokkede sig over at der var duplikeret kode..
+    private void VisitKort(){
+        System.out.println("Skulle der være spørgsmål eller fejl kan du kontakte 'Gruppe Pizza' på");
+        System.out.println("\t\t-------------------------------");
+        System.out.println("\t\t|        55 55 55 55          |");
+        System.out.println("\t\t|        falsk@email.dk       |");
+        System.out.println("\t\t-------------------------------\n\n");
     }
 }
