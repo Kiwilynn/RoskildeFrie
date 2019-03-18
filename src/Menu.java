@@ -5,7 +5,7 @@ class Menu {
 
     void menu() throws FileNotFoundException {
 
-        Scanner scan = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         //Instantierer logind klassen for at senere at kører metoden for at afgøre hvorvidt det er en leder eller ansat til at beslutte menuens valgmuligheder
         Logind bruger = new Logind();
@@ -23,7 +23,7 @@ class Menu {
 
                 int svar = 0;
                 System.out.println("1: Telefon liste \n2: Indskrevet børn\n3: Hjælp\n4: Sluk program");
-                svar = scan.nextInt();
+                svar = input.nextInt();
 
                 switch (svar) {
 
@@ -36,35 +36,37 @@ class Menu {
                         } break;
 
                     case 2:
+                        svar = 0;
+
                         if (bruger.getStatus().equals("Leder")) {
                             //!MANGLER rediger børn
 
-                            System.out.println("1: Opret barn\n2: Vis børn\n3: Fjern børn\n4: Tilbage");
-                            if(scan.nextInt() == 1) {
+                            System.out.println("1: Opret barn\n2: Vis børn\n3: Slet barn\n4: Tilbage");
+                            svar = input.nextInt();
+                            if(svar == 1) {
                                 bH.indlesBorn();
 
                             }
-                            if (scan.nextInt() == 2){
+                            else if (svar == 2){
                                 bH.visBarn();
 
                             }
-                            if(scan.nextInt() == 3){
-                                bH.fjernBarn();
+                            else if(svar == 3){
+                                bH.sletBarn();
 
                             }
-                            if(scan.nextInt() == 4){
-                                // tilbage til menu
+                            else if(svar == 4){
+                                System.out.println("\n\n\n\n\n");
                             }
                         } else if (bruger.getStatus().equals("Ansat")) {
                             System.out.println("1: vis børn \n2: Tilbage");
-                            if(scan.nextInt() == 1) {
+                            svar = input.nextInt();
+                            if (svar == 1) {
                                 bH.visBarn();
+                            } else if (svar == 2) {
+                                System.out.println("\n\n\n\n\n");
                             }
-                            else if(scan.nextInt() == 2) {
-                                // tilbage til menu
-                            }
-                        }
-                        break;
+                        } break;
 
                     case 3:
                         if (bruger.getStatus().equals("Leder")) {
@@ -86,7 +88,7 @@ class Menu {
                 }
             } catch (InputMismatchException e){
                 System.out.println("Venligst indtast kun numre tilsvarende til den funktion du prøver at tilgå");
-                scan.nextLine();
+                input.nextLine();
             }
         }
     }

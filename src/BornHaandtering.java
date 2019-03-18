@@ -37,7 +37,7 @@ public class BornHaandtering {
         System.out.println();
     }
 
-    public void fjernBarn() throws FileNotFoundException {
+    public void sletBarn() throws FileNotFoundException {
         System.out.println("Hvilket barn vil du gerne fjerne fra listen?:");
         System.out.print("Input fornavn: ");
         String fornavn = input.nextLine().toUpperCase();
