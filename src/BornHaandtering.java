@@ -11,10 +11,8 @@ public class BornHaandtering {
     static List<Born> borneliste = new LinkedList<>();
     private Scanner input = new Scanner(System.in);
 
-
-    public void indlesBarn() throws FileNotFoundException {
-
-        Scanner input = new Scanner(new File("C:\\Users\\madsr\\IdeaProjects\\untitled1\\src\\Børneliste"));
+    public void indlesBorn() throws FileNotFoundException {
+        Scanner input = new Scanner(new File(".src/Børneliste"));
         while (input.hasNext()) {
             String fornavn = input.next();
             String efternavn = input.next();
