@@ -41,7 +41,7 @@ class Menu {
                         if (bruger.getStatus().equals("Leder")) {
                             //!MANGLER rediger børn
 
-                            System.out.println("1: Opret barn\n2: Vis børn\n3: Slet barn\n4: Tilbage");
+                            System.out.println("1: Opret barn\n2: Vis børn\n3: Rediger barn\n4: Slet barn\n5: Tilbage");
                             svar = input.nextInt();
                             if(svar == 1) {
                                 //mangler opret barn
@@ -51,11 +51,15 @@ class Menu {
                                 bH.visBarn();
 
                             }
-                            else if(svar == 3){
-                                bH.sletBarn();
+                            else if (svar == 3){
+                                bH.redigerBarn();
 
                             }
                             else if(svar == 4){
+                                bH.sletBarn();
+
+                            }
+                            else if(svar == 5){
                                 System.out.println("\n\n\n\n\n");
                             }
                         } else if (bruger.getStatus().equals("Ansat")) {
