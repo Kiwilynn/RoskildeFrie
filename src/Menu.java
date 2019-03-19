@@ -21,17 +21,21 @@ class Menu {
             try {
 
                 int svar = 0;
-                System.out.println("1: Telefon liste \n2: Indskrevet børn\n3: Hjælp\n4: Sluk program");
+                System.out.println();
+                System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Sluk program");
+
+                System.out.print("\nInput: ");
                 svar = input.nextInt();
 
                 switch (svar) {
 
                     case 1:
                         if (bruger.getStatus().equals("Leder")) {
-                            //!MANGLER rediger og vis telefon liste
+                            bH.visTelefonliste();
+                            //!MANGLER rediger telefon liste
                             System.out.println("1");
                         } else if (bruger.getStatus().equals("Ansat")) {
-                            //!MANGLER vis telefon liste
+                            bH.visTelefonliste();
                         } break;
 
                     case 2:
@@ -40,7 +44,7 @@ class Menu {
                         if (bruger.getStatus().equals("Leder")) {
                             //!MANGLER rediger børn
 
-                            System.out.println("1: Opret barn\n2: Vis børn\n3: Rediger barn\n4: Slet barn\n5: Tilbage");
+                            System.out.println("[1]: Opret barn\n[2]: Vis børn\n[3]: Rediger barn\n[4]: Slet barn\n[5]: Tilbage");
                             svar = input.nextInt();
                             if(svar == 1) {
                                 bH.opretBarn();
@@ -62,7 +66,7 @@ class Menu {
                                 System.out.println("\n\n\n\n\n");
                             }
                         } else if (bruger.getStatus().equals("Ansat")) {
-                            System.out.println("1: vis børn \n2: Tilbage");
+                            System.out.println("[1]: Se børn \n[2]: Tilbage");
                             svar = input.nextInt();
                             if (svar == 1) {
                                 bH.visBarn();

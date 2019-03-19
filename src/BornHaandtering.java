@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -9,10 +10,12 @@ import java.util.*;
 public class BornHaandtering {
 
     static List<Born> borneliste = new LinkedList<>();
+    static List<Born> telefonliste = new LinkedList<>();
     private Scanner input = new Scanner(System.in);
     private int count = 0;
 
     File file = new File("Børneliste");
+    File file1 = new File("Telefonliste");
 
     public void indlesBorn() throws FileNotFoundException {
 
@@ -28,12 +31,24 @@ public class BornHaandtering {
 
             borneliste.add(new Born(fornavn, efternavn, alder, stue, parent_Navn, dato));
         }
+
+        while(input.hasNext()){
+            String telefon = input.next();
+            String parent_Navn = input.next();
+
+            telefonliste.add(new Born(parent_Navn, telefon));
+        }
     }
 
     public void gemBarn() throws FileNotFoundException {
         PrintStream output = new PrintStream(new FileOutputStream("Børneliste", true));
         for (Born b : borneliste) {
             output.println(b.getFornavn()+" "+b.getEfternavn()+" "+b.getAlder()+" "+b.getStue()+" "+b.getParent_Navn()+" "+b.getDato());
+        }
+
+        PrintStream output1 = new PrintStream(new FileOutputStream("Telefonliste", true));
+        for (Born b : borneliste) {
+            output1.println(b.getTelefon()+" "+b.getParent_Navn());
         }
         System.out.println();
     }
@@ -50,8 +65,10 @@ public class BornHaandtering {
         } else
         {
             System.out.println("Hvad er barnest fornavn?");
+            System.out.print("Input: ");
             tempRemove = input.nextLine();
             System.out.println("Hvad er barnest efternavn?");
+            System.out.print("Input: ");
             tempRemove2 = input.nextLine();
         }
         for (int i = 0; i < borneliste.size(); i++) {
@@ -108,11 +125,16 @@ public class BornHaandtering {
 
             String dato = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
 
+            System.out.print("Telefon nr.: ");
+            String telefon = input.next();
+
             System.out.println();
 
             borneliste.add(new Born(fornavn, efternavn, alder, stue, parent, dato));
             System.out.println("Barn er oprettet");
             gemBarn();
+
+            telefonliste.add(new Born(parent, telefon));
 
         } catch (InputMismatchException ime) {
             System.out.println("Der gik noget galt");
@@ -125,7 +147,7 @@ public class BornHaandtering {
             //System.out.printf("%-10S %-10S %10S %10S\n","First:","Last:","Age:","Team:");
 
             for (Born b : borneliste) {
-                System.out.printf("%-15S %-15S %15d %15S %15S %15S\n", b.getFornavn(), b.getEfternavn(), b.getAlder(), b.getStue(), b.getParent_Navn(), b.getDato());
+                System.out.printf("%-10S %-10S %10d %10S %10S %10S\n", b.getFornavn(), b.getEfternavn(), b.getAlder(), b.getStue(), b.getParent_Navn(), b.getDato());
 
                 count++;
             }
@@ -136,12 +158,22 @@ public class BornHaandtering {
                 System.out.println("Der er " + count + " børn i alt:");
             }
             System.out.println();
+    }
+
+    public void visTelefonliste(){
+
+        for (Born t : telefonliste){
+            System.out.printf("%-10S %10S\n", t.getParent_Navn(), t.getTelefon());
         }
+        System.out.println();
+    }
+
 
         void redigerBarn(){
 
-
         System.out.println("Hvad ønsker du at ændre?");
+        System.out.println("Fornavn, Efternavn, Alder, Stue, Dato");
+            System.out.print("Input: ");
         String svarString = null;
         svarString = input.nextLine();
 
@@ -190,5 +222,5 @@ public class BornHaandtering {
         for(int i = 0; i < borneliste.size(); i++){
 
         }
-        }
+    }
 }

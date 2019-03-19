@@ -8,6 +8,7 @@ public class Born {
     private int alder;
     private String stue;
     private String parent_Navn;
+    private String telefon;
 
     //Formateret Date object fra java.util til at være en string
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -21,6 +22,12 @@ public class Born {
         this.stue = stue;
         this.parent_Navn = parent_Navn;
     }
+
+    public Born(String parent_Navn, String telefon){
+        this.telefon = telefon;
+        this.parent_Navn = parent_Navn;
+    }
+
 
     public String getFornavn() {
         return fornavn;
@@ -40,6 +47,9 @@ public class Born {
     public String getParent_Navn() {
         return parent_Navn;
     }
+    public String getTelefon() {
+        return telefon;
+    }
 
     public void setFornavn(String fornavn) {
         this.fornavn = fornavn;
@@ -56,6 +66,9 @@ public class Born {
     }
     public void setParent_Navn(String parent_Navn) {
         this.parent_Navn = parent_Navn;
+    }
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
     }
 
     public String toString(){

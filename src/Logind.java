@@ -7,12 +7,14 @@ class Logind {
         void Logind(){
 
         try {
-        int lederPW = 123;
-        int ansatPW = 456;
-        int svar = 0;
-        Scanner input = new Scanner(System.in);
-        System.out.println("Indtast kodeord");
-        svar  = input.nextInt();
+            int lederPW = 123;
+            int ansatPW = 456;
+            int svar = 0;
+            Scanner input = new Scanner(System.in);
+
+            System.out.println("Indtast kodeord");
+            System.out.print("\nInput: ");
+            svar  = input.nextInt();
 
             if (svar == lederPW) {
                 Status = "Leder";
