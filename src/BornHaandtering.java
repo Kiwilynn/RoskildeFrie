@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class BornHaandtering {
 
-    static List<Born> borneliste = new LinkedList<>();
+    static LinkedList<Born> borneliste = new LinkedList<>();
     private Scanner input = new Scanner(System.in);
     private int count = 0;
 
@@ -164,5 +164,25 @@ throws FileNotFoundException {
                 System.out.println("Der er " + count + " børn i alt:");
             }
             System.out.println();
+        }
+
+        void redigerBarn(){
+
+        String svarString = null;
+        svarString = input.nextLine();
+
+            switch(svarString) {
+
+                case "Alder":
+                    svarString = null;
+                    System.out.println("Hvad hedder barnet til fornavn?");
+                    svarString = input.nextLine();
+                    System.out.println("Hvad hedder barnet til Efternavn?");
+                    svarString = input.nextLine();
+            }
+        for(int i = 0; i < borneliste.size(); i++){
+
+
+        }
         }
 }
