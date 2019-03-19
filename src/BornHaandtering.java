@@ -2,20 +2,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.util.InputMismatchException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 public class BornHaandtering {
 
-    static LinkedList<Born> borneliste = new LinkedList<>();
+    static List<Born> borneliste = new LinkedList<>();
     private Scanner input = new Scanner(System.in);
     private int count = 0;
 
     File file = new File("Børneliste");
-
+    Date date = new Date();
 
     public void indlesBorn() throws FileNotFoundException {
 
@@ -109,7 +107,7 @@ public class BornHaandtering {
             System.out.print("Forældre: ");
             String parent = input.next().toUpperCase();
 
-            String dato = "10-10-2019";
+            String dato = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
 
             System.out.println();
 
@@ -128,7 +126,8 @@ public class BornHaandtering {
             //System.out.printf("%-10S %-10S %10S %10S\n","First:","Last:","Age:","Team:");
 
             for (Born b : borneliste) {
-                System.out.printf("%-10S %-10S %3d %10S %10S %15S\n", b.getFornavn(), b.getEfternavn(), b.getAlder(), b.getStue(), b.getParent_Navn(), b.getDato());
+                System.out.printf("%-15S %-15S %15d %15S %15S %15S\n", b.getFornavn(), b.getEfternavn(), b.getAlder(), b.getStue(), b.getParent_Navn(), b.getDato());
+
                 count++;
             }
             System.out.println();

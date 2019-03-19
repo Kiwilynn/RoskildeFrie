@@ -13,7 +13,7 @@ public class Born {
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
     private String dato;
 
-    public Born(String fornavn, String efternavn, int alder, String dato, String stue, String parent_Navn){
+    public Born(String fornavn, String efternavn, int alder, String stue, String parent_Navn, String dato){
         this.fornavn = fornavn;
         this.efternavn = efternavn;
         this.alder = alder;
@@ -56,5 +56,9 @@ public class Born {
     }
     public void setParent_Navn(String parent_Navn) {
         this.parent_Navn = parent_Navn;
+    }
+
+    public String toString(){
+        return fornavn + efternavn + alder + stue + parent_Navn + dato;
     }
 }
