@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,6 +11,8 @@ public class BornHaandtering {
 
     static List<Born> borneliste = new LinkedList<>();
     private Scanner input = new Scanner(System.in);
+
+
 
     public void indlesBorn() throws FileNotFoundException {
 
@@ -62,9 +65,32 @@ throws FileNotFoundException {
         }
     }
 
-    public void opretBarn(){
+    public void opretBarn() throws FileNotFoundException{
+        try {
+            System.out.println("");
+            System.out.print("Fornavn: ");
+            String fornavn = input.next().toUpperCase();
+            System.out.print("Efternavn: ");
+            String efternavn = input.next().toUpperCase();
+            System.out.print("Alder: ");
+            int alder = input.nextInt();
+            System.out.print("Stue: ");
+            String stue = input.next().toUpperCase();;
+            System.out.print("Forældre: ");
+            String parent = input.next().toUpperCase();;
 
+            String dato = "10-10-2019";
 
+            System.out.println();
+
+            borneliste.add(new Born(fornavn, efternavn, alder, stue, parent, dato));
+            System.out.println("Barn er oprettet");
+            gemBarn();
+
+        } catch (InputMismatchException ime) {
+            System.out.println("Der gik noget galt");
+        }
+        System.out.println();
     }
 
     public void visBarn() {
