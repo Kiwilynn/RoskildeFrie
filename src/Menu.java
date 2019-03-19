@@ -1,9 +1,10 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 class Menu {
 
-    void menu() throws FileNotFoundException {
+    void menu() throws FileNotFoundException, IOException {
 
         Scanner input = new Scanner(System.in);
 
@@ -13,9 +14,7 @@ class Menu {
         BornHaandtering bH = new BornHaandtering();
 
         boolean go = true;
-
         bH.indlesBorn();
-        bH.visBarn();
 
         while (go) {
 

@@ -7,16 +7,18 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class BornHaandtering {
 
     static List<Born> borneliste = new LinkedList<>();
     private Scanner input = new Scanner(System.in);
+    private int count = 0;
 
+    File file = new File("Børneliste");
 
 
     public void indlesBorn() throws FileNotFoundException {
 
-        File file = new File("Børneliste");
         Scanner input = new Scanner(file);
 
         while (input.hasNext()) {
@@ -35,12 +37,66 @@ public class BornHaandtering {
 throws FileNotFoundException {
         PrintStream output = new PrintStream(new FileOutputStream("Børneliste", true));
         for (Born b : borneliste) {
-            output.println(b.getFornavn() + " " + b.getEfternavn() + " " + b.getAlder() + " " + b.getDato() + " " + b.getStue() + " " + b.getParent_Navn());
+            output.println(b.getFornavn()+" "+b.getEfternavn()+" "+b.getAlder()+" "+b.getStue()+" "+b.getParent_Navn()+" "+b.getDato());
         }
         System.out.println();
     }
 
-    public void sletBarn() throws FileNotFoundException {
+    public void sletBarn() throws java.io.IOException{
+
+        String tempRemove = null;
+        String tempRemove2 = null;
+        int tempRemove3 = 0;
+
+
+        if (borneliste.size() == 0) {
+            System.out.println("Der er ingen børn registeret\n");
+        } else
+        {
+            System.out.println("Hvad er barnest fornavn?");
+            tempRemove = input.nextLine();
+            System.out.println("Hvad er barnest efternavn?");
+            tempRemove2 = input.nextLine();
+        }
+        for (int i = 0; i < borneliste.size(); i++) {
+
+
+            if (tempRemove.equalsIgnoreCase(borneliste.get(i).getFornavn()) && tempRemove2.equalsIgnoreCase(borneliste.get(i).getEfternavn())){
+
+
+                count++;
+                System.out.println("Du fandt: "+borneliste.get(i).getFornavn()+" "+borneliste.get(i).getEfternavn());
+                System.out.println("Vil du slette dette barn? \n1: Yes\n2: No\n");
+                tempRemove3 = input.nextInt();
+                input.nextLine();
+
+                if (tempRemove3 == 1) {
+
+                    System.out.println("Du slettede: "+borneliste.get(i).getFornavn()+" "+borneliste.get(i).getEfternavn());
+                    System.out.println();
+                    borneliste.remove(i);
+                    fileOverwriting();
+                    break;
+                }
+            }
+        } if (count == 0){
+            System.out.println("Der er ingen børn som hedder det");
+            System.out.println();
+            count = 0;
+        }
+    }
+
+    public void fileOverwriting() throws java.io.IOException{
+
+        new FileOutputStream("Børneliste").close();
+        PrintStream output = new PrintStream(new FileOutputStream(file, true));
+
+        for (Born b : borneliste) {
+            output.println(b.getFornavn()+" "+b.getEfternavn()+" "+b.getAlder()+" "+b.getStue()+" "+b.getParent_Navn()+" "+b.getDato());
+        }
+    }
+
+   /* public void sletBarn() throws FileNotFoundException {
         System.out.println("Hvilket barn vil du gerne fjerne fra listen?:");
         System.out.print("Input fornavn: ");
         String fornavn = input.nextLine();
@@ -63,7 +119,7 @@ throws FileNotFoundException {
                 break;
             }
         }
-    }
+    }*/
 
     public void opretBarn() throws FileNotFoundException{
         try {
@@ -75,9 +131,9 @@ throws FileNotFoundException {
             System.out.print("Alder: ");
             int alder = input.nextInt();
             System.out.print("Stue: ");
-            String stue = input.next().toUpperCase();;
+            String stue = input.next().toUpperCase();
             System.out.print("Forældre: ");
-            String parent = input.next().toUpperCase();;
+            String parent = input.next().toUpperCase();
 
             String dato = "10-10-2019";
 
