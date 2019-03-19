@@ -140,12 +140,47 @@ public class BornHaandtering {
 
         void redigerBarn(){
 
+
+        System.out.println("Hvad ønsker du at ændre?");
         String svarString = null;
         svarString = input.nextLine();
 
-            switch(svarString) {
+            switch(svarString.toUpperCase()) {
 
-                case "Alder":
+                case "ALDER":
+
+                    svarString = null;
+                    System.out.println("Hvad hedder barnet til fornavn?");
+                    svarString = input.nextLine();
+                    System.out.println("Hvad hedder barnet til Efternavn?");
+                    svarString = input.nextLine();
+
+                case "FORNAVN":
+
+                    svarString = null;
+                    System.out.println("Hvad hedder barnet til fornavn?");
+                    svarString = input.nextLine();
+                    System.out.println("Hvad hedder barnet til Efternavn?");
+                    svarString = input.nextLine();
+
+                    case "EFTERNAVN":
+
+                    svarString = null;
+                    System.out.println("Hvad hedder barnet til fornavn?");
+                    svarString = input.nextLine();
+                    System.out.println("Hvad hedder barnet til Efternavn?");
+                    svarString = input.nextLine();
+
+                    case "STUE":
+
+                        svarString = null;
+                        System.out.println("Hvad hedder barnet til fornavn?");
+                        svarString = input.nextLine();
+                        System.out.println("Hvad hedder barnet til Efternavn?");
+                        svarString = input.nextLine();
+
+                        case "DATO":
+
                     svarString = null;
                     System.out.println("Hvad hedder barnet til fornavn?");
                     svarString = input.nextLine();
