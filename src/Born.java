@@ -10,8 +10,8 @@ public class Born {
     private String parent_Navn;
 
     //Formateret Date object fra java.util til at være en string
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    private String dato;
+    //private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    //private String dato;
 
     public Born(String fornavn, String efternavn, int alder, String dato, String stue, String parent_Navn){
         this.fornavn = fornavn;
