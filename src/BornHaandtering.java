@@ -13,7 +13,6 @@ public class BornHaandtering {
     private int count = 0;
 
     File file = new File("Børneliste");
-    Date date = new Date();
 
     public void indlesBorn() throws FileNotFoundException {
 
@@ -154,7 +153,6 @@ public class BornHaandtering {
                     svarString = input.nextLine();
             }
         for(int i = 0; i < borneliste.size(); i++){
-
 
         }
         }
