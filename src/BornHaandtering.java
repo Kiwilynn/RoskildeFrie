@@ -28,8 +28,8 @@ public class BornHaandtering {
         }
     }
 
-
-    public void gemBarn() throws FileNotFoundException {
+    public void gemBarn()
+throws FileNotFoundException {
         PrintStream output = new PrintStream(new FileOutputStream("Børneliste", true));
         for (Born b : borneliste) {
             output.println(b.getFornavn() + " " + b.getEfternavn() + " " + b.getAlder() + " " + b.getDato() + " " + b.getStue() + " " + b.getParent_Navn());
@@ -40,9 +40,9 @@ public class BornHaandtering {
     public void sletBarn() throws FileNotFoundException {
         System.out.println("Hvilket barn vil du gerne fjerne fra listen?:");
         System.out.print("Input fornavn: ");
-        String fornavn = input.nextLine().toUpperCase();
+        String fornavn = input.nextLine();
         System.out.print("Input efternavn: ");
-        String efternavn = input.nextLine().toUpperCase();
+        String efternavn = input.nextLine();
 
         for (Born b : borneliste) {
 
@@ -60,6 +60,11 @@ public class BornHaandtering {
                 break;
             }
         }
+    }
+
+    public void opretBarn(){
+
+
     }
 
     public void visBarn() {

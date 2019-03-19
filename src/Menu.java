@@ -44,7 +44,7 @@ class Menu {
                             System.out.println("1: Opret barn\n2: Vis børn\n3: Slet barn\n4: Tilbage");
                             svar = input.nextInt();
                             if(svar == 1) {
-                                bH.indlesBorn();
+                                //mangler opret barn
 
                             }
                             else if (svar == 2){
