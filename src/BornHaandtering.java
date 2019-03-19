@@ -33,8 +33,7 @@ public class BornHaandtering {
         }
     }
 
-    public void gemBarn()
-throws FileNotFoundException {
+    public void gemBarn() throws FileNotFoundException {
         PrintStream output = new PrintStream(new FileOutputStream("Børneliste", true));
         for (Born b : borneliste) {
             output.println(b.getFornavn()+" "+b.getEfternavn()+" "+b.getAlder()+" "+b.getStue()+" "+b.getParent_Navn()+" "+b.getDato());
@@ -75,7 +74,7 @@ throws FileNotFoundException {
                     System.out.println("Du slettede: "+borneliste.get(i).getFornavn()+" "+borneliste.get(i).getEfternavn());
                     System.out.println();
                     borneliste.remove(i);
-                    fileOverwriting();
+                    filoverskrivning();
                     break;
                 }
             }
@@ -86,7 +85,7 @@ throws FileNotFoundException {
         }
     }
 
-    public void fileOverwriting() throws java.io.IOException{
+    public void filoverskrivning() throws java.io.IOException{
 
         new FileOutputStream("Børneliste").close();
         PrintStream output = new PrintStream(new FileOutputStream(file, true));
@@ -95,31 +94,6 @@ throws FileNotFoundException {
             output.println(b.getFornavn()+" "+b.getEfternavn()+" "+b.getAlder()+" "+b.getStue()+" "+b.getParent_Navn()+" "+b.getDato());
         }
     }
-
-   /* public void sletBarn() throws FileNotFoundException {
-        System.out.println("Hvilket barn vil du gerne fjerne fra listen?:");
-        System.out.print("Input fornavn: ");
-        String fornavn = input.nextLine();
-        System.out.print("Input efternavn: ");
-        String efternavn = input.nextLine();
-
-        for (Born b : borneliste) {
-
-            if (b.getFornavn().equalsIgnoreCase(fornavn) & b.getEfternavn().equalsIgnoreCase(efternavn)) {
-                System.out.println();
-                borneliste.remove(b);
-                System.out.println("Du slettede: " + b.getFornavn() + " " + b.getEfternavn());
-                System.out.println();
-                gemBarn();
-                break;
-            } else {
-                System.out.println();
-                System.out.println("Dette barn findes ikke ");
-                System.out.println();
-                break;
-            }
-        }
-    }*/
 
     public void opretBarn() throws FileNotFoundException{
         try {

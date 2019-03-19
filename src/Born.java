@@ -50,9 +50,7 @@ public class Born {
     public void setAlder(int alder) {
         this.alder = alder;
     }
-    public void setDato(String dato) {
-        this.dato = dato;
-    }
+    public void setDato(String dato) { this.dato = dato; }
     public void setStue(String stue) {
         this.stue = stue;
     }
