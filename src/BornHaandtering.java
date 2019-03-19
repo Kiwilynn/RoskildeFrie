@@ -142,53 +142,119 @@ public class BornHaandtering {
 
 
         System.out.println("Hvad ønsker du at ændre?");
-        String svarString = null;
+        System.out.println("Alder, navn, stue eller dato for indskrivelse?");
+        String svarString;
+        String svarString2;
+        String svarString3;
         svarString = input.nextLine();
+
+        System.out.println("Hvad hedder barnet til fornavn?");
+        svarString2 = input.nextLine();
+        System.out.println("Hvad hedder barnet til Efternavn?");
+        svarString3 = input.nextLine();
+
 
             switch(svarString.toUpperCase()) {
 
+
+
+
                 case "ALDER":
 
+                    for(Born b : borneliste){
+
+                        if (b.getFornavn().equalsIgnoreCase(svarString2) && b.getEfternavn().equalsIgnoreCase(svarString3)){
+
+
+                            System.out.println("Barnets alder er lige nu: " + b.getAlder());
+                            System.out.println("Hvad ønsker du at ændre barnets alder til?");
+                            b.setAlder(input.nextInt());
+                            System.out.println("Barnets alder er nu sat til: " + b.getAlder());
+                        }
+                    } break;
+
+                case "NAVN":
+
+                    System.out.println("1: Vil du ændre fornavn?");
+                    System.out.println("2: Vil du ændre Efternavn?");
+                    System.out.println("3: Vil du ændre både fornavn og efternavn?");
                     svarString = null;
-                    System.out.println("Hvad hedder barnet til fornavn?");
                     svarString = input.nextLine();
-                    System.out.println("Hvad hedder barnet til Efternavn?");
-                    svarString = input.nextLine();
+                    if (svarString.equalsIgnoreCase("1")) {
 
-                case "FORNAVN":
+                        for (Born b : borneliste) {
 
-                    svarString = null;
-                    System.out.println("Hvad hedder barnet til fornavn?");
-                    svarString = input.nextLine();
-                    System.out.println("Hvad hedder barnet til Efternavn?");
-                    svarString = input.nextLine();
+                            if (b.getFornavn().equalsIgnoreCase(svarString2) && b.getEfternavn().equalsIgnoreCase(svarString3)) {
 
-                    case "EFTERNAVN":
+                                System.out.println("Barnet hedder lige nu: " + b.getFornavn() +" " + b.getEfternavn());
+                                System.out.println("Hvad skal barnet hedde til fornavn?");
+                                b.setFornavn(input.nextLine());
+                                System.out.println("Barnet hedder nu: " + b.getFornavn() + " " + b.getEfternavn());
+                            }
+                        }
 
-                    svarString = null;
-                    System.out.println("Hvad hedder barnet til fornavn?");
-                    svarString = input.nextLine();
-                    System.out.println("Hvad hedder barnet til Efternavn?");
-                    svarString = input.nextLine();
+                    } else if (svarString.equalsIgnoreCase("2")) {
 
-                    case "STUE":
+                        for (Born b : borneliste) {
 
-                        svarString = null;
-                        System.out.println("Hvad hedder barnet til fornavn?");
-                        svarString = input.nextLine();
-                        System.out.println("Hvad hedder barnet til Efternavn?");
-                        svarString = input.nextLine();
+                            if (b.getFornavn().equalsIgnoreCase(svarString2) && b.getEfternavn().equalsIgnoreCase(svarString3)) {
+
+                                System.out.println("Barnet hedder lige nu: " + b.getFornavn() +" " + b.getEfternavn());
+                                System.out.println("Hvad skal barnet hedde til efternavn?");
+                                b.setEfternavn(input.nextLine());
+                                System.out.println("Barnet hedder nu: " + b.getFornavn() + " " + b.getEfternavn());
+                            }
+                        }
+
+                    } else if (svarString.equalsIgnoreCase("3")) {
+
+                        for (Born b : borneliste) {
+
+                            if (b.getFornavn().equalsIgnoreCase(svarString2) && b.getEfternavn().equalsIgnoreCase(svarString3)) {
+
+                                System.out.println("Barnet hedder lige nu: " + b.getFornavn() +" " + b.getEfternavn());
+                                System.out.println("Hvad skal barnet hedde til fornavn?");
+                                b.setFornavn(input.nextLine());
+                                System.out.println("Hvad skal barnet hedde til efternavn?");
+                                b.setEfternavn(input.nextLine());
+                                System.out.println("Barnet hedder nu: " + b.getFornavn() + " " + b.getEfternavn());
+                            }
+                        }
+
+                    } else{}
+                    break;
+
+                case "STUE":
+
+                    for(Born b : borneliste){
+
+                        if (b.getFornavn().equalsIgnoreCase(svarString2) && b.getEfternavn().equalsIgnoreCase(svarString3)){
+
+
+                            System.out.println("Barnets stue er lige nu: " + b.getStue());
+                            System.out.println("Hvad ønsker du at ændre barnets stue til?");
+                            b.setStue(input.nextLine());
+                            System.out.println("Barnets stue er nu sat til: " + b.getStue());
+                        }
+                    } break;
 
                         case "DATO":
 
-                    svarString = null;
-                    System.out.println("Hvad hedder barnet til fornavn?");
-                    svarString = input.nextLine();
-                    System.out.println("Hvad hedder barnet til Efternavn?");
-                    svarString = input.nextLine();
+                            for(Born b : borneliste){
+
+                                if (b.getFornavn().equalsIgnoreCase(svarString2) && b.getEfternavn().equalsIgnoreCase(svarString3)){
+
+
+                                    System.out.println("Barnets indskrivningsdato er lige nu: " + b.getDato());
+                                    System.out.println("Hvad ønsker du at ændre barnets indskrivingsdato til?");
+                                    b.setDato(input.nextLine());
+                                    System.out.println("Barnets indskrivningsdato er nu sat til: " + b.getDato());
+                                }
+                            } break;
+
+                            default:
+                                System.out.println("Det lader til at du ikke har skrevet rigtigt");
+                            }
             }
-        for(int i = 0; i < borneliste.size(); i++){
 
         }
-        }
-}

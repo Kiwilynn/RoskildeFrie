@@ -52,6 +52,7 @@ class Menu {
                             }
                             else if (svar == 3){
                                 bH.redigerBarn();
+                                bH.filoverskrivning();
 
                             }
                             else if(svar == 4){
