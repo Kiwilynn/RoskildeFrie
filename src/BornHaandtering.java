@@ -46,8 +46,8 @@ public class BornHaandtering {
         }
 
         PrintStream output1 = new PrintStream(new FileOutputStream("Telefonliste", true));
-        for (Born b : borneliste) {
-            output1.println(b.getTelefon()+" "+b.getParent_Navn());
+        for (Born t : telefonliste) {
+            output1.println(t.getTelefon()+" "+t.getParent_Navn());
         }
         System.out.println();
     }
@@ -130,10 +130,11 @@ public class BornHaandtering {
             System.out.println();
 
             borneliste.add(new Born(fornavn, efternavn, alder, stue, parent, dato));
+            telefonliste.add(new Born(parent, telefon));
             System.out.println("Barn er oprettet");
             gemBarn();
 
-            telefonliste.add(new Born(parent, telefon));
+
 
         } catch (InputMismatchException ime) {
             System.out.println("Der gik noget galt");
