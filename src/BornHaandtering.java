@@ -19,6 +19,7 @@ public class BornHaandtering {
     public void indlesBorn() throws FileNotFoundException {
 
         Scanner input = new Scanner(file);
+        Scanner input1 = new Scanner(file1);
 
         while (input.hasNext()) {
             String fornavn = input.next();
@@ -31,9 +32,9 @@ public class BornHaandtering {
             borneliste.add(new Born(fornavn, efternavn, alder, stue, parent_Navn, dato));
         }
 
-        while(input.hasNext()){
-            String telefon = input.next();
-            String parent_Navn = input.next();
+        while(input1.hasNext()){
+            String telefon = input1.next();
+            String parent_Navn = input1.next();
 
             telefonliste.add(new Born(parent_Navn, telefon));
         }
