@@ -22,12 +22,10 @@ public class Born {
         this.stue = stue;
         this.parent_Navn = parent_Navn;
     }
-
     public Born(String parent_Navn, String telefon){
         this.telefon = telefon;
         this.parent_Navn = parent_Navn;
     }
-
 
     public String getFornavn() {
         return fornavn;

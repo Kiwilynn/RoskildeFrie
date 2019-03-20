@@ -22,6 +22,7 @@ class Menu {
 
                 int svar = 0;
                 System.out.println();
+                System.out.println("Roskilde frie børnehave");
                 System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Sluk program");
 
                 System.out.print("\nInput: ");
@@ -44,6 +45,7 @@ class Menu {
                         if (bruger.getStatus().equals("Leder")) {
                             //!MANGLER rediger børn
 
+                            System.out.println("Logget ind som *Leder*");
                             System.out.println("[1]: Opret barn\n[2]: Vis børn\n[3]: Rediger barn\n[4]: Slet barn\n[5]: Tilbage");
                             svar = input.nextInt();
                             if(svar == 1) {
@@ -67,6 +69,7 @@ class Menu {
                                 System.out.println("\n\n\n\n\n");
                             }
                         } else if (bruger.getStatus().equals("Ansat")) {
+                            System.out.println("Logget ind som *Ansat*");
                             System.out.println("[1]: Se børn \n[2]: Tilbage");
                             svar = input.nextInt();
                             if (svar == 1) {
