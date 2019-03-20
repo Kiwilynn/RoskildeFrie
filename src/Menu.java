@@ -32,10 +32,17 @@ class Menu {
                 switch (svar) {
 
                     case 1:
+                        svar = 0;
                         if (bruger.getStatus().equals("Leder")) {
-                            bH.visTelefonliste();
-                            //!MANGLER rediger telefon liste
-                            System.out.println("1");
+                            System.out.println("[1] : Se telefonlisten\n[2] : Rediger telefonlisten");
+                            svar = input.nextInt();
+                            if (svar == 1){
+                                bH.visTelefonliste();
+                            }
+                            else if (svar == 2){
+                                bH.redigerTelefon();
+                            }
+
                         } else if (bruger.getStatus().equals("Ansat")) {
                             bH.visTelefonliste();
                         } break;
