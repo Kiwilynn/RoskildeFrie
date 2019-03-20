@@ -22,9 +22,8 @@ class Menu {
 
                 int svar = 0;
                 System.out.println();
-                System.out.println("Roskilde frie børnehave");
-                if(bruger.getStatus().equalsIgnoreCase("Leder")){System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Slet lister \n[5]: Sluk program");}
-                else {System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Sluk program");}
+                System.out.println("ROSKILDE FRIE BØRNEHAVE\n");
+                System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Sluk program");
 
                 System.out.print("\nInput: ");
                 svar = input.nextInt();
@@ -54,6 +53,7 @@ class Menu {
                             //!MANGLER rediger børn
 
                             System.out.println("[1]: Opret barn\n[2]: Vis børn\n[3]: Rediger barn\n[4]: Slet barn\n[5]: Tilbage");
+                            System.out.print("\nInput: ");
                             svar = input.nextInt();
                             if(svar == 1) {
                                 bH.opretBarn();
@@ -76,8 +76,8 @@ class Menu {
                                 System.out.println("\n\n\n\n\n");
                             }
                         } else if (bruger.getStatus().equals("Ansat")) {
-                            System.out.println("Logget ind som *Ansat*");
                             System.out.println("[1]: Se børn \n[2]: Tilbage");
+                            System.out.print("\nInput: ");
                             svar = input.nextInt();
                             if (svar == 1) {
                                 bH.visBarn();
@@ -116,6 +116,7 @@ class Menu {
                 }
             } catch (InputMismatchException e){
                 System.out.println("Venligst indtast kun numre tilsvarende til den funktion du prøver at tilgå");
+                menu();
                 input.nextLine();
             }
         }
