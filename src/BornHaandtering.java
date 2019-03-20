@@ -292,17 +292,20 @@ public class BornHaandtering {
         System.out.println("Vil du slette telefonliste, børneliste eller begge?");
         svarString = input.nextLine();
 
-        switch(svarString){
+        switch(svarString.toUpperCase()){
 
             case "TELEFONLISTE":
                 telefonliste.clear();
+                break;
 
             case "BØRNELISTE":
                 borneliste.clear();
+                break;
 
             case "BEGGE":
                 telefonliste.clear();
                 borneliste.clear();
+                break;
         }
 
     }
