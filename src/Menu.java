@@ -23,7 +23,8 @@ class Menu {
                 int svar = 0;
                 System.out.println();
                 System.out.println("ROSKILDE FRIE BØRNEHAVE\n");
-                System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Sluk program");
+                if(bruger.getStatus().equalsIgnoreCase("Leder")){System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Slet lister \n[5]: Sluk program");}
+                else {System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Sluk program");}
 
                 System.out.print("\nInput: ");
                 svar = input.nextInt();
@@ -50,8 +51,6 @@ class Menu {
                         svar = 0;
 
                         if (bruger.getStatus().equals("Leder")) {
-                            //!MANGLER rediger børn
-
                             System.out.println("[1]: Opret barn\n[2]: Vis børn\n[3]: Rediger barn\n[4]: Slet barn\n[5]: Tilbage");
                             System.out.print("\nInput: ");
                             svar = input.nextInt();

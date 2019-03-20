@@ -177,8 +177,8 @@ public class BornHaandtering {
 
     public void visBarn() {
             int count = 0;
-            //System.out.printf("%-10S %-10S %10S %10S\n","First:","Last:","Age:","Team:");
 
+            System.out.printf("%-10S %-10S %10S %10S %10S %10S\n","Fornavn:","Efternavn:","Alder:","Stue:","Forældre:","Indskriv. Dato:");
             for (Born b : borneliste) {
                 System.out.printf("%-10S %-10S %10d %10S %10S %10S\n", b.getFornavn(), b.getEfternavn(), b.getAlder(), b.getStue(), b.getParent_Navn(), b.getDato());
 
@@ -201,7 +201,6 @@ public class BornHaandtering {
         }
         System.out.println();
     }
-
 
     void redigerBarn(){
 
@@ -346,6 +345,7 @@ public class BornHaandtering {
         }
 
     }
+
     void redigerTelefon(){
 
         System.out.println("Hvad hedder forældren?");
