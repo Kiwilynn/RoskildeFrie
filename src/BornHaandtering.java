@@ -16,23 +16,23 @@ public class BornHaandtering {
 
     public void indlesBorn() throws FileNotFoundException {
 
-        Scanner input = new Scanner(file);
-        Scanner input1 = new Scanner(file1);
+        Scanner scan = new Scanner(file);
+        Scanner scan1 = new Scanner(file1);
         try {
-            while (input.hasNext()) {
-                String fornavn = input.next();
-                String efternavn = input.next();
-                int alder = input.nextInt();
-                String stue = input.next();
-                String parent_Navn = input.next();
-                String dato = input.next();
+            while (scan.hasNext()) {
+                String fornavn = scan.next();
+                String efternavn = scan.next();
+                int alder = scan.nextInt();
+                String stue = scan.next();
+                String parent_Navn = scan.next();
+                String dato = scan.next();
 
                 borneliste.add(new Born(fornavn, efternavn, alder, stue, parent_Navn, dato));
             }
 
-            while (input1.hasNext()) {
-                String telefon = input1.next();
-                String parent_Navn = input1.next();
+            while (scan1.hasNext()) {
+                String telefon = scan1.next();
+                String parent_Navn = scan1.next();
 
                 telefonliste.add(new Born(parent_Navn, telefon));
             }
