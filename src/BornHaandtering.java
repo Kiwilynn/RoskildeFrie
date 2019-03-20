@@ -324,7 +324,7 @@ public class BornHaandtering {
     void sletAlt() {
 
         int svar = 0;
-        System.out.println("[1]: Vil du slette telefonliste\n[2]: Børneliste\n[3]: Begge?\n[4]: Ellers kan du gå tilbage");
+        System.out.println("[1]: Vil du slette telefonliste\n[2]: Børneliste\n[3]: Begge?\n[4]: Tilbage");
         svar = input.nextInt();
 
         switch (svar) {
