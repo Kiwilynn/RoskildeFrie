@@ -46,7 +46,6 @@ class Menu {
                         if (bruger.getStatus().equals("Leder")) {
                             //!MANGLER rediger børn
 
-                            System.out.println("Logget ind som *Leder*");
                             System.out.println("[1]: Opret barn\n[2]: Vis børn\n[3]: Rediger barn\n[4]: Slet barn\n[5]: Tilbage");
                             svar = input.nextInt();
                             if(svar == 1) {
@@ -82,11 +81,13 @@ class Menu {
 
                     case 3:
                         if (bruger.getStatus().equals("Leder")) {
+                            System.out.println("Dit brugernavn er : " + bruger.getStatus());
                             System.out.println("Som leder kan du redigere telefon listen og redigere i informationen om de indskrevne børn, samt tilføje flere børn eller slette børn.");
                             System.out.println("Du har også mulighed for at bare at se enten telefon listen eller de indskrevne børn.");
                             VisitKort();
 
                         } else if (bruger.getStatus().equals("Ansat")) {
+                            System.out.println("Dit brugernavn er : " + bruger.getStatus());
                             System.out.println("Som ansat kan du se telefon listen og se indskrevne børn.");
                             VisitKort();
                         }
