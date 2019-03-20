@@ -23,7 +23,7 @@ class Menu {
                 int svar = 0;
                 System.out.println();
                 System.out.println("Roskilde frie børnehave");
-                System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Sluk program");
+                System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Slet lister \n[5]: Sluk program");
 
                 System.out.print("\nInput: ");
                 svar = input.nextInt();
