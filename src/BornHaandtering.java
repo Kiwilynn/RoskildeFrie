@@ -42,12 +42,13 @@ public class BornHaandtering {
 
     public void gemBarn() throws FileNotFoundException {
         PrintStream output = new PrintStream(new FileOutputStream("Børneliste", true));
-        for (Born b : borneliste) {
-            output.println(b.getFornavn()+" "+b.getEfternavn()+" "+b.getAlder()+" "+b.getStue()+" "+b.getParent_Navn()+" "+b.getDato());
-        }
+            output.println(borneliste.get(borneliste.size()-1).getFornavn()+" "+borneliste.get(borneliste.size()-1).getEfternavn()+" "+borneliste.get(borneliste.size()-1).getAlder()+" "+borneliste.get(borneliste.size()-1).getStue()+" "+borneliste.get(borneliste.size()-1).getParent_Navn());
+
         System.out.println();
     }
-    public void gemTelefonliste() throws FileNotFoundException {
+
+    public void gemTelefonliste() throws IOException {
+        new FileOutputStream("Telefonliste").close();
         PrintStream output1 = new PrintStream(new FileOutputStream("Telefonliste", true));
         for (Born t : telefonliste) {
             output1.println(t.getTelefon()+" "+t.getParent_Navn());
@@ -111,7 +112,7 @@ public class BornHaandtering {
         }
     }
 
-    public void opretBarn() throws FileNotFoundException{
+    public void opretBarn() throws IOException {
         try {
             System.out.println("");
             System.out.print("Fornavn: ");
