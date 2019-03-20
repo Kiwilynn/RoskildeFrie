@@ -22,8 +22,9 @@ class Menu {
 
                 int svar = 0;
                 System.out.println();
-                System.out.println("ROSKILDE FRIE BØRNEHAVE");
-                System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Sluk program");
+                System.out.println("Roskilde frie børnehave");
+                if(bruger.getStatus().equalsIgnoreCase("Leder")){System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Slet lister \n[5]: Sluk program");}
+                else {System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Sluk program");}
 
                 System.out.print("\nInput: ");
                 svar = input.nextInt();
@@ -91,14 +92,17 @@ class Menu {
                         }
                         break;
                     case 4:
+                        if(bruger.getStatus().equals("Leder")){
                         bH.sletAlt();
                         bH.filoverskrivning();
-                        System.out.println("Du har nu slettet listerne");
-                        break;
+                        break;}else {System.out.println("Farvel");
+                            go = false;
+                            break;}
                     case 5:
+                        if (bruger.getStatus().equals("Leder")){
                         System.out.println("Farvel");
                         go = false;
-                        break;
+                        break;} else{break;}
                     default:
                         System.out.println("Venligst indtast nummer indenfor funktionslisten");
                 }

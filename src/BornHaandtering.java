@@ -285,24 +285,28 @@ public class BornHaandtering {
 
     void sletAlt(){
 
-        String svarString = null;
-        System.out.println("Vil du slette telefonliste, børneliste eller begge?");
-        svarString = input.nextLine();
+        int svar = 0;
+        System.out.println("[1]: Vil du slette telefonliste\n[2]: Børneliste\n[3]: Begge?\n[4]: Ellers kan du gå tilbage" );
+        svar = input.nextInt();
 
-        switch(svarString.toUpperCase()){
+        switch(svar){
 
-            case "TELEFONLISTE":
+            case 1:
                 telefonliste.clear();
+                System.out.println("Telefonlisten er nu slettet");
                 break;
 
-            case "BØRNELISTE":
+            case 2:
                 borneliste.clear();
+                System.out.println("Børnelisten er nu slettet");
                 break;
 
-            case "BEGGE":
+            case 3:
                 telefonliste.clear();
                 borneliste.clear();
+                System.out.println("Telefonlisten og børnelisten er nu slettet");
                 break;
+        default:
         }
 
     }
