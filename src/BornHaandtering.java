@@ -9,6 +9,7 @@ public class BornHaandtering {
     static List<Born> telefonliste = new LinkedList<>();
     private Scanner input = new Scanner(System.in);
     private int count = 0;
+    private boolean stop = true;
 
     File file = new File("Børneliste");
     File file1 = new File("Telefonliste");
@@ -17,7 +18,7 @@ public class BornHaandtering {
 
         Scanner input = new Scanner(file);
         Scanner input1 = new Scanner(file1);
-
+    try{
         while (input.hasNext()) {
             String fornavn = input.next();
             String efternavn = input.next();
@@ -35,11 +36,14 @@ public class BornHaandtering {
 
             telefonliste.add(new Born(parent_Navn, telefon));
         }
+    }catch(InputMismatchException IME){
+        System.out.println("Der gik noget galt under indlæsningen");
+    }
     }
 
     public void gemBarn() throws FileNotFoundException {
         PrintStream output = new PrintStream(new FileOutputStream("Børneliste", true));
-            output.println(borneliste.get(borneliste.size()-1).getFornavn()+" "+borneliste.get(borneliste.size()-1).getEfternavn()+" "+borneliste.get(borneliste.size()-1).getAlder()+" "+borneliste.get(borneliste.size()-1).getStue()+" "+borneliste.get(borneliste.size()-1).getParent_Navn());
+            output.println(borneliste.get(borneliste.size()-1).getFornavn()+" "+borneliste.get(borneliste.size()-1).getEfternavn()+" "+borneliste.get(borneliste.size()-1).getAlder()+" "+borneliste.get(borneliste.size()-1).getStue()+" "+borneliste.get(borneliste.size()-1).getParent_Navn()+" "+borneliste.get(borneliste.size()-1).getDato());
 
         System.out.println();
     }
@@ -110,35 +114,63 @@ public class BornHaandtering {
     }
 
     public void opretBarn() throws IOException {
+
+        int alder = 0;
+        String telefon = null;
+
         try {
+
             System.out.println("");
             System.out.print("Fornavn: ");
-            String fornavn = input.next().toUpperCase();
+            String fornavn = input.nextLine().toUpperCase();
             System.out.print("Efternavn: ");
-            String efternavn = input.next().toUpperCase();
-            System.out.print("Alder: ");
-            int alder = input.nextInt();
+            String efternavn = input.nextLine().toUpperCase();
+
+            stop = true;
+            while(stop) {
+                System.out.print("Alder: ");
+                alder = input.nextInt();
+                input.nextLine();
+
+                if (alder > 6) {
+                    System.out.println("Barnet er for gammelt");
+                }
+                else if (alder < 2) {
+                    System.out.println("Barnet er for ungt");
+                }else{
+                    stop = false;
+                }
+            }
+
             System.out.print("Stue: ");
-            String stue = input.next().toUpperCase();
+            String stue = input.nextLine().toUpperCase();
             System.out.print("Forældre: ");
-            String parent = input.next().toUpperCase();
+            String parent = input.nextLine().toUpperCase();
 
+            stop = true;
+            while(stop) {
+                System.out.print("Telefon nr.: ");
+                telefon = input.nextLine();
+                if (telefon.length() != 8) {
+                    System.out.println("Telefon nr. skal 8 tal lang");
+                }else{
+                    stop = false;
+                }
+            }
             String dato = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
-
-            System.out.print("Telefon nr.: ");
-            String telefon = input.next();
-
-            System.out.println();
-
+            System.out.println(dato);
             borneliste.add(new Born(fornavn, efternavn, alder, stue, parent, dato));
             telefonliste.add(new Born(parent, telefon));
-            System.out.println("Barn er oprettet");
             gemBarn();
             gemTelefonliste();
+
+            System.out.println("Barn er oprettet");
+            System.out.println();
 
 
         } catch (InputMismatchException ime) {
             System.out.println("Der gik noget galt");
+            input.nextLine();
         }
         System.out.println();
     }
