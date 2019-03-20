@@ -13,8 +13,8 @@ class Menu {
         bruger.Logind();
         BornHaandtering bH = new BornHaandtering();
 
-        boolean go = true;
         bH.indlesBorn();
+        boolean go = true;
 
         while (go) {
 
