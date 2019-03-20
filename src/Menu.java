@@ -22,7 +22,7 @@ class Menu {
 
                 int svar = 0;
                 System.out.println();
-                System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Sluk program");
+                System.out.println("[1]: Telefon liste \n[2]: Indskrevet børn\n[3]: Hjælp\n[4]: Slet lister\n[5]: Sluk program");
 
                 System.out.print("\nInput: ");
                 svar = input.nextInt();
@@ -88,6 +88,11 @@ class Menu {
                         }
                         break;
                     case 4:
+                        bH.sletAlt();
+                        bH.filoverskrivning();
+                        System.out.println("Du har nu slettet listerne");
+                        break;
+                    case 5:
                         System.out.println("Farvel");
                         go = false;
                         break;
