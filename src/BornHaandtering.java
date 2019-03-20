@@ -284,4 +284,25 @@ public class BornHaandtering {
                             } break;
         }
     }
+
+    void sletAlt(){
+
+        String svarString = null;
+        System.out.println("Vil du slette telefonliste, børneliste eller begge?");
+        svarString = input.nextLine();
+
+        switch(svarString){
+
+            case "TELEFONLISTE":
+                telefonliste.clear();
+
+            case "BØRNELISTE":
+                borneliste.clear();
+
+            case "BEGGE":
+                telefonliste.clear();
+                borneliste.clear();
+        }
+
+    }
 }

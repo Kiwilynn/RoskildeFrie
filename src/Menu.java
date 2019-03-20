@@ -91,6 +91,11 @@ class Menu {
                         }
                         break;
                     case 4:
+                        bH.sletAlt();
+                        bH.filoverskrivning();
+                        System.out.println("Du har nu slettet listerne");
+                        break;
+                    case 5:
                         System.out.println("Farvel");
                         go = false;
                         break;
