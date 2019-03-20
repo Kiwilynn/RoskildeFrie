@@ -174,7 +174,6 @@ public class BornHaandtering {
         String svarString = null;
         System.out.println("Alder, navn, stue eller dato for indskrivelse?");
         System.out.print("Input: ");
-        //String svarString;
         String svarString2;
         String svarString3;
         svarString = input.nextLine();
