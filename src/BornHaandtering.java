@@ -66,8 +66,8 @@ public class BornHaandtering {
 
         if (borneliste.size() == 0) {
             System.out.println("Der er ingen børn registeret\n");
-        } else
-        {
+        }
+        else {
             System.out.println("Hvad er barnest fornavn?");
             System.out.print("Input: ");
             tempRemove = input.nextLine();
@@ -187,7 +187,8 @@ public class BornHaandtering {
             System.out.println();
             if(count == 1){
                 System.out.println("Der er " + count + " barn i alt:");
-            }else {
+            }
+            else {
                 System.out.println("Der er " + count + " børn i alt:");
             }
             System.out.println();
@@ -206,21 +207,21 @@ public class BornHaandtering {
 
         System.out.println("Hvad ønsker du at ændre?");
         String svarString = null;
-        System.out.println("Alder, navn, stue eller dato for indskrivelse?");
+        System.out.println("[1]: Alder\n[2]: Navn\n[3]: Stue\n[4]: Dato for indskrivelse");
         System.out.print("Input: ");
         String svarString2;
         String svarString3;
         svarString = input.nextLine();
 
-        System.out.println("Hvad hedder barnet til fornavn?");
-        svarString2 = input.nextLine();
-        System.out.println("Hvad hedder barnet til Efternavn?");
-        svarString3 = input.nextLine();
+            System.out.println("Hvad hedder barnet til Fornavn?");
+            svarString2 = input.nextLine();
+            System.out.println("Hvad hedder barnet til Efternavn?");
+            svarString3 = input.nextLine();
 
 
             switch(svarString.toUpperCase()) {
 
-                case "ALDER":
+                case "1":
 
                     for(Born b : borneliste){
 
@@ -234,7 +235,7 @@ public class BornHaandtering {
                         }
                     } break;
 
-                case "NAVN":
+                case "2":
 
                     System.out.println("1: Vil du ændre fornavn?");
                     System.out.println("2: Vil du ændre Efternavn?");
@@ -282,10 +283,11 @@ public class BornHaandtering {
                             }
                         }
 
-                    } else{}
+                    }
+                    else{}
                     break;
 
-                case "STUE":
+                case "3":
 
                     for(Born b : borneliste){
 
@@ -299,7 +301,7 @@ public class BornHaandtering {
                         }
                     } break;
 
-                        case "DATO":
+                        case "4":
 
                             for(Born b : borneliste){
 
@@ -312,30 +314,52 @@ public class BornHaandtering {
                                     System.out.println("Barnets indskrivningsdato er nu sat til: " + b.getDato());
                                 }
                             } break;
+
+
         }
     }
 
     void sletAlt(){
 
-        String svarString = null;
-        System.out.println("Vil du slette telefonliste, børneliste eller begge?");
-        svarString = input.nextLine();
+        int svar = 0;
+        System.out.println("[1]: Vil du slette telefonliste\n[2]: Børneliste\n[3]: Begge?\n[4]: Ellers kan du gå tilbage" );
+        svar = input.nextInt();
 
-        switch(svarString.toUpperCase()){
+        switch(svar){
 
-            case "TELEFONLISTE":
+            case 1:
                 telefonliste.clear();
+                System.out.println("Telefonlisten er nu slettet");
                 break;
 
-            case "BØRNELISTE":
+            case 2:
                 borneliste.clear();
+                System.out.println("Børnelisten er nu slettet");
                 break;
 
-            case "BEGGE":
+            case 3:
                 telefonliste.clear();
                 borneliste.clear();
+                System.out.println("Telefonlisten og børnelisten er nu slettet");
                 break;
+        default:
         }
 
+    }
+    void redigerTelefon(){
+
+        System.out.println("Hvad hedder forældren?");
+        String svarString2 = input.nextLine();
+
+        for(Born t : telefonliste){
+
+            if (t.getParent_Navn().equalsIgnoreCase(svarString2)){
+
+                System.out.println("Forældres telefon nummer er: " + t.getTelefon());
+                System.out.println("Hvad ønsker du at ændre forældres telefon nummer til?");
+                t.setTelefon(input.nextLine());
+                System.out.println("Forældres telefon nummer er nu sat til: " + t.getTelefon());
+            }
+        }
     }
 }

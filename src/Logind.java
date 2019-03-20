@@ -22,6 +22,7 @@ class Logind {
                 Status = "Ansat";
             } else {
                 System.out.println("Dit svar var ikke et gyldigt kodeord");
+                Logind();
             }
         }
         catch (InputMismatchException e){

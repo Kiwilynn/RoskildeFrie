@@ -31,10 +31,17 @@ class Menu {
                 switch (svar) {
 
                     case 1:
+                        svar = 0;
                         if (bruger.getStatus().equals("Leder")) {
-                            bH.visTelefonliste();
-                            //!MANGLER rediger telefon liste
-                            System.out.println("1");
+                            System.out.println("[1] : Se telefonlisten\n[2] : Rediger telefonlisten");
+                            svar = input.nextInt();
+                            if (svar == 1){
+                                bH.visTelefonliste();
+                            }
+                            else if (svar == 2){
+                                bH.redigerTelefon();
+                            }
+
                         } else if (bruger.getStatus().equals("Ansat")) {
                             bH.visTelefonliste();
                         } break;
@@ -81,24 +88,29 @@ class Menu {
 
                     case 3:
                         if (bruger.getStatus().equals("Leder")) {
+                            System.out.println("Dit brugernavn er : " + bruger.getStatus());
                             System.out.println("Som leder kan du redigere telefon listen og redigere i informationen om de indskrevne børn, samt tilføje flere børn eller slette børn.");
                             System.out.println("Du har også mulighed for at bare at se enten telefon listen eller de indskrevne børn.");
                             VisitKort();
 
                         } else if (bruger.getStatus().equals("Ansat")) {
+                            System.out.println("Dit brugernavn er : " + bruger.getStatus());
                             System.out.println("Som ansat kan du se telefon listen og se indskrevne børn.");
                             VisitKort();
                         }
                         break;
                     case 4:
+                        if(bruger.getStatus().equals("Leder")){
                         bH.sletAlt();
                         bH.filoverskrivning();
-                        System.out.println("Du har nu slettet listerne");
-                        break;
+                        break;}else {System.out.println("Farvel");
+                            go = false;
+                            break;}
                     case 5:
+                        if (bruger.getStatus().equals("Leder")){
                         System.out.println("Farvel");
                         go = false;
-                        break;
+                        break;} else{break;}
                     default:
                         System.out.println("Venligst indtast nummer indenfor funktionslisten");
                 }
