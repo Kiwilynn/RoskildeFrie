@@ -2,15 +2,12 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-
 public class BornHaandtering {
-
-    static List<Born> borneliste = new LinkedList<>();
-    static List<Born> telefonliste = new LinkedList<>();
+    LinkedList<Born> borneliste = new LinkedList<>();
+    LinkedList<Born> telefonliste = new LinkedList<>();
     private Scanner input = new Scanner(System.in);
     private int count = 0;
     private boolean stop = true;
-
     File file = new File("Børneliste");
     File file1 = new File("Telefonliste");
 
@@ -75,19 +72,14 @@ public class BornHaandtering {
             tempRemove2 = input.nextLine();
         }
         for (int i = 0; i < borneliste.size(); i++) {
-
-
             if (tempRemove.equalsIgnoreCase(borneliste.get(i).getFornavn()) && tempRemove2.equalsIgnoreCase(borneliste.get(i).getEfternavn())) {
-
-
                 count++;
                 System.out.println("Du fandt: " + borneliste.get(i).getFornavn() + " " + borneliste.get(i).getEfternavn());
-                System.out.println("Vil du slette dette barn? \n1: Yes\n2: No\n");
+                System.out.println("Vil du slette dette barn? \n[1]: Ja\n[2]: Nej\n");
                 tempRemove3 = input.nextInt();
                 input.nextLine();
 
                 if (tempRemove3 == 1) {
-
                     System.out.println("Du slettede: " + borneliste.get(i).getFornavn() + " " + borneliste.get(i).getEfternavn());
                     System.out.println();
                     borneliste.remove(i);
@@ -114,12 +106,10 @@ public class BornHaandtering {
     }
 
     public void opretBarn() throws IOException {
-
         int alder = 0;
         String telefon = null;
 
         try {
-
             System.out.println("");
             System.out.print("Fornavn: ");
             String fornavn = input.nextLine().toUpperCase();
@@ -140,7 +130,6 @@ public class BornHaandtering {
                     stop = false;
                 }
             }
-
             System.out.print("Stue: ");
             String stue = input.nextLine().toUpperCase();
             System.out.print("Forældre: ");
@@ -221,12 +210,8 @@ public class BornHaandtering {
         switch (svarString.toUpperCase()) {
 
             case "1":
-
                 for (Born b : borneliste) {
-
                     if (b.getFornavn().equalsIgnoreCase(svarString2) && b.getEfternavn().equalsIgnoreCase(svarString3)) {
-
-
                         System.out.println("Barnets alder er lige nu: " + b.getAlder());
                         System.out.println("Hvad ønsker du at ændre barnets alder til?");
                         b.setAlder(input.nextInt());
@@ -236,25 +221,20 @@ public class BornHaandtering {
                 break;
 
             case "2":
-
-                System.out.println("1: Vil du ændre fornavn?");
-                System.out.println("2: Vil du ændre Efternavn?");
-                System.out.println("3: Vil du ændre både fornavn og efternavn?");
+                System.out.println("[1]: Vil du ændre fornavn?");
+                System.out.println("[2]: Vil du ændre Efternavn?");
+                System.out.println("[3]: Vil du ændre både fornavn og efternavn?");
                 svarString = null;
                 svarString = input.nextLine();
                 if (svarString.equalsIgnoreCase("1")) {
-
                     for (Born b : borneliste) {
-
                         if (b.getFornavn().equalsIgnoreCase(svarString2) && b.getEfternavn().equalsIgnoreCase(svarString3)) {
-
                             System.out.println("Barnet hedder lige nu: " + b.getFornavn() + " " + b.getEfternavn());
                             System.out.println("Hvad skal barnet hedde til fornavn?");
                             b.setFornavn(input.nextLine());
                             System.out.println("Barnet hedder nu: " + b.getFornavn() + " " + b.getEfternavn());
                         }
                     }
-
                 } else if (svarString.equalsIgnoreCase("2")) {
 
                     for (Born b : borneliste) {
@@ -320,7 +300,6 @@ public class BornHaandtering {
 
         }
     }
-
     void sletAlt() {
 
         int svar = 0;
@@ -348,7 +327,6 @@ public class BornHaandtering {
         }
 
     }
-
     void redigerTelefon() {
 
         System.out.println("Hvad hedder forældren?");
@@ -369,10 +347,6 @@ public class BornHaandtering {
     public void sorterAlder() {
         borneliste.sort(Comparator.comparing(Born::getAlder));
     }
-
-    public void sorterNavn() {
-        telefonliste.sort(Comparator.comparing(Born::getParent_Navn));
-
-    }
+    public void sorterNavn() { telefonliste.sort(Comparator.comparing(Born::getParent_Navn));}
 
 }

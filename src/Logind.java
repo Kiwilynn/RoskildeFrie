@@ -5,7 +5,6 @@ class Logind {
     private String Status = null;
 
         void Logind(){
-
         try {
             int lederPW = 123;
             int ansatPW = 456;
@@ -28,12 +27,9 @@ class Logind {
         catch (InputMismatchException e){
             System.out.println("Indtast venligst din kode, som består af udelukkende tal");
         Logind();
-
         }
     }
-
     String getStatus(){
         return Status;
     }
-
 }

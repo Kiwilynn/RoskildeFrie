@@ -7,19 +7,16 @@ class Menu {
     void menu() throws FileNotFoundException, IOException {
 
         Scanner input = new Scanner(System.in);
-
         //Instantierer logind klassen for at senere at kører metoden for at afgøre hvorvidt det er en leder eller ansat til at beslutte menuens valgmuligheder
         Logind bruger = new Logind();
         bruger.Logind();
         BornHaandtering bH = new BornHaandtering();
-
         bH.indlesBorn();
         boolean go = true;
 
         while (go) {
 
             try {
-
                 int svar = 0;
                 System.out.println();
                 System.out.println("ROSKILDE FRIE BØRNEHAVE\n");
