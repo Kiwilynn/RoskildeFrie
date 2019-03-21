@@ -146,7 +146,6 @@ public class BornHaandtering {
                 }
             }
             String dato = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
-            System.out.println(dato);
             borneliste.add(new Born(fornavn, efternavn, alder, stue, parent, dato));
             telefonliste.add(new Born(parent, telefon));
             gemBarn();
