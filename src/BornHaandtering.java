@@ -40,7 +40,10 @@ public class BornHaandtering {
 
     public void gemBarn() throws FileNotFoundException {
         PrintStream output = new PrintStream(new FileOutputStream("Børneliste", true));
-        output.println(borneliste.get(borneliste.size() - 1).getFornavn() + " " + borneliste.get(borneliste.size() - 1).getEfternavn() + " " + borneliste.get(borneliste.size() - 1).getAlder() + " " + borneliste.get(borneliste.size() - 1).getStue() + " " + borneliste.get(borneliste.size() - 1).getParent_Navn() + " " + borneliste.get(borneliste.size() - 1).getDato());
+
+        output.println(borneliste.get(borneliste.size() - 1).getFornavn() + " " + borneliste.get(borneliste.size() - 1).getEfternavn()
+                + " " + borneliste.get(borneliste.size() - 1).getAlder() + " " + borneliste.get(borneliste.size() - 1).getStue()
+                + " " + borneliste.get(borneliste.size() - 1).getParent_Navn() + " " + borneliste.get(borneliste.size() - 1).getDato());
 
         System.out.println();
     }
